@@ -675,6 +675,8 @@
     margin-bottom: 2.5rem;
   }
 
+  .notif-desc-short { display: none; }
+
   .notif-examples {
     display: flex;
     flex-direction: column;
@@ -963,34 +965,90 @@
     .hero-sub { margin-left: auto; margin-right: auto; }
     .hero-actions { justify-content: center; }
 
+    /* Show only one phone, centered */
     .hero-phones {
-      height: 400px;
+      height: auto;
       margin: 0 auto;
-      max-width: 400px;
+      max-width: 260px;
+      position: relative;
     }
 
-    .phone-frame { width: 180px; }
+    .phone-frame {
+      position: relative;
+      width: 100%;
+      top: auto;
+      left: auto;
+      transform: none;
+      border-radius: 28px;
+    }
 
+    .phone-frame:nth-child(1) {
+      top: auto;
+      left: auto;
+      transform: none;
+    }
+
+    .phone-frame:nth-child(2) { display: none; }
+    .phone-frame:nth-child(1):hover { transform: none; }
+
+    /* Story section */
     .story {
       grid-template-columns: 1fr;
       padding: 4rem 2rem;
       gap: 3rem;
     }
 
+    .story-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .story-phone {
+      width: 240px;
+      animation: none;
+    }
+
+    /* Hide floating badges on mobile — too cluttered */
+    .story-badge { display: none; }
+
+    .story-text h2 { font-size: 1.6rem; }
+    .story-text p { font-size: 0.95rem; }
+
+    .features-header { padding: 0 2rem 3rem; }
+
     .features-grid {
       grid-template-columns: 1fr;
       padding: 0 2rem;
     }
 
+    .feature-card { padding: 2rem 1.5rem; }
+
     .showcase { padding: 4rem 2rem; }
     .showcase-item .phone-wrap { width: 160px !important; }
     .showcase-row { gap: 1rem; }
 
+    /* Notifications section */
     .notif-section { padding: 4rem 2rem; }
     .notif-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .notif-phone { width: 220px; }
+
+    .notif-phone {
+      width: 220px;
+      margin: 0 auto;
+      animation: none;
+    }
+
+    .notif-visual { justify-content: center; }
+
+    .notif-text h2 { font-size: 1.6rem; }
+    .notif-text > p { font-size: 0.95rem; }
+    .notif-desc-full { display: none; }
+    .notif-desc-short { display: block; }
 
     .how-it-works, .cta { padding: 4rem 2rem; }
+
+    .quote-section { padding: 4rem 2rem; }
+    .quote-section::before { font-size: 8rem; }
+
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
   }
 </style>
@@ -1191,7 +1249,8 @@
   <div class="notif-grid">
     <div class="notif-text fade-in">
       <h2>Never miss a thing — even when you're not there</h2>
-      <p>Add appointments, medications, activities, or anything else to your child's calendar. CareCard sends push notifications to every caregiver at the time you set — so the babysitter knows about the 4pm inhaler, grandma doesn't forget Tuesday's swim lesson, and no one's scrambling to remember when the dentist appointment is.</p>
+      <p class="notif-desc-full">Add appointments, medications, activities, or anything else to your child's calendar. CareCard sends push notifications to every caregiver at the time you set — so the babysitter knows about the 4pm inhaler, grandma doesn't forget Tuesday's swim lesson, and no one's scrambling to remember when the dentist appointment is.</p>
+      <p class="notif-desc-short">Add anything to your child's calendar and CareCard sends push notifications to every caregiver — so no one misses a thing.</p>
       <div class="notif-examples">
         <div class="notif-card">
           <div class="notif-icon">
